@@ -13,6 +13,7 @@ const Home = () => {
 
   const {
     data: user,
+    refetch,
     isLoading,
     isError,
   } = useGetMeQuery(undefined, {
@@ -22,8 +23,10 @@ const Home = () => {
   useEffect(() => {
     if (!token) {
       navigate("/login");
+    } else {
+      refetch();
     }
-  }, [token, navigate]);
+  }, [token, navigate, refetch]);
 
   useEffect(() => {
     if (user) {
