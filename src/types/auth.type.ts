@@ -2,8 +2,8 @@ export interface SignupPayload {
   name: string;
   username: string;
   password: string;
-  email: string;
-  phone: string;
+  email?: string;
+  phone?: string;
 }
 
 export interface LoginPayload {
@@ -16,7 +16,7 @@ export interface LoginResponse {
   refresh: string;
 }
 
-export interface MeResponse {
+export interface User {
   id: number;
   name: string;
   username: string;

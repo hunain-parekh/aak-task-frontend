@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
 import type {
   LoginPayload,
   LoginResponse,
-  MeResponse,
+  User,
   SignupPayload,
 } from "../../types/auth.type";
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 export const authApi = createApi({
   reducerPath: "authApi",
@@ -27,7 +27,7 @@ export const authApi = createApi({
         body: credentials,
       }),
     }),
-    getMe: builder.query<MeResponse, void>({
+    getMe: builder.query<User, void>({
       query: () => ({
         url: "me/",
         method: "GET",
